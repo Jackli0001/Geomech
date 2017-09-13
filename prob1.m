@@ -1,6 +1,7 @@
 clear
 clc
 
+%% prob 1
 % converting the stress tensor to geographical coordinate system
 
 a = 90;
@@ -13,3 +14,6 @@ R_pg = [cosd(a)*cosd(b) sind(a)*cosd(b) -sind(b);
 
 Sp = diag([78.9,66.6,64.3]);
 Sg = R_pg'*Sp*R_pg;
+
+%% prob 2
+strike = rand(100,1);
