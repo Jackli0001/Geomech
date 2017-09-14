@@ -16,4 +16,5 @@ Sp = diag([78.9,66.6,64.3]);
 Sg = R_pg'*Sp*R_pg;
 
 %% prob 2
-strike = rand(100,1);
+strike = rand(100,1)*100;
+dip = ;
