@@ -17,4 +17,4 @@ Sg = R_pg'*Sp*R_pg;
 
 %% prob 2
 strike = rand(100,1)*100;
-dip = ;
+dip = 90;
