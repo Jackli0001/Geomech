@@ -38,6 +38,7 @@ for i = 1:n
 	tau(i) = sqrt(t(:,i)'*t(:,i)-sigma_n(i)^2);
 end
 
+%% mohr circle
 x1_sample = linspace(sigma_h,sigma_H,100);
 x2_sample = linspace(sigma_v,sigma_H,100);
 x3_sample = linspace(sigma_h,sigma_v,100);
@@ -51,16 +52,63 @@ y1 = sqrt(r1^2-(x1_sample-x1_center).^2);
 y2 = sqrt(r2^2-(x2_sample-x2_center).^2);
 y3 = sqrt(r3^2-(x3_sample-x3_center).^2);
 
+
+%% prob 3
+mu1 = 0.5;
+mu2 = 0.7;
+
+xx_sample = linspace(0,25,100);
+yy_sample1 = mu1*xx_sample;
+yy_sample2 = mu2*xx_sample;
+
+
+
+%% prob 4
+rng(1)
+n = 10;
+strike1 = random('Normal',60,5,1,10);
+dip1 = random('Normal',80,5,1,10);
+nn = [-sind(strike1).*sind(dip1);cosd(strike1).*sind(dip1);-cosd(dip1)];
+t = (Sg-Pp*eye(3)) * nn;
+
+for i = 1:n
+	sigma_n1(i) = t(:,i)'* nn(:,i);
+	tau1(i) = sqrt(t(:,i)'*t(:,i)-sigma_n1(i)^2);
+end
+
+strike2 = random('Normal',10,5,1,10);
+dip2 = random('Normal',80,5,1,10);
+nn = [-sind(strike2).*sind(dip2);cosd(strike2).*sind(dip2);-cosd(dip2)];
+t = (Sg-Pp*eye(3)) * nn;
+
+for i = 1:n
+	sigma_n2(i) = t(:,i)'* nn(:,i);
+	tau2(i) = sqrt(t(:,i)'*t(:,i)-sigma_n2(i)^2);
+end
+
+%% plot
 figure(1)
 hold on; box on; grid on
 axis equal
 plot(x1_sample,y1)
 plot(x2_sample,y2)
 plot(x3_sample,y3)
+plot(xx_sample,yy_sample1)
+plot(xx_sample,yy_sample2)
 plot(sigma_n,tau,'x','MarkerSize',5)
 xlim([0 25])
 ylim([0 25])
 
 
-
-
+figure(2)
+hold on; box on; grid on
+axis equal
+plot(x1_sample,y1)
+plot(x2_sample,y2)
+plot(x3_sample,y3)
+plot(xx_sample,yy_sample1)
+plot(xx_sample,yy_sample2)
+plot(sigma_n1,tau1,'x','MarkerSize',5)
+plot(sigma_n2,tau2,'x','MarkerSize',5)
+xlim([0 25])
+ylim([0 25])
