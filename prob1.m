@@ -31,7 +31,7 @@ n = 100;
 strike = rand(1,n) * 360;
 dip = rand(1,n) * 90;
 nn = [-sind(strike).*sind(dip);cosd(strike).*sind(dip);-cosd(dip)];
-t = Sg * nn;
+t = (Sg-Pp*eye(3)) * nn;
 
 for i = 1:n
 	sigma_n(i) = t(:,i)'* nn(:,i);
@@ -53,11 +53,13 @@ y3 = sqrt(r3^2-(x3_sample-x3_center).^2);
 
 figure(1)
 hold on; box on; grid on
+axis equal
 plot(x1_sample,y1)
 plot(x2_sample,y2)
 plot(x3_sample,y3)
-plot(sigma_n,tau,'.','MarkerSize',5)
-xlim([0 30])
+plot(sigma_n,tau,'x','MarkerSize',5)
+xlim([0 25])
+ylim([0 25])
 
 
 
