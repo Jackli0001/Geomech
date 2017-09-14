@@ -15,6 +15,6 @@ R_pg = [cosd(a)*cosd(b) sind(a)*cosd(b) -sind(b);
 Sp = diag([78.9,66.6,64.3]);
 Sg = R_pg'*Sp*R_pg;
 
-%% prob 2
-strike = rand(100,1)*100;
-dip = 90;
+%% using a uniform distribution
+strike = rand(100,1) * 360;
+dip = rand(100,1) * 90;
