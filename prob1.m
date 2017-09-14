@@ -30,7 +30,7 @@ rng(1)
 n = 100;
 strike = rand(1,n) * 360;
 dip = rand(1,n) * 90;
-nn = [-sind(strike)*sind(dip);cosd(strike)*sind(dip);-cosd(dip)];
+nn = [-sind(strike).*sind(dip);cosd(strike).*sind(dip);-cosd(dip)];
 t = Sg * nn;
 
 for i = 1:n
@@ -47,9 +47,9 @@ x3_center = (sigma_v+sigma_h)/2;
 r1 = (sigma_H-sigma_h)/2;
 r2 = (sigma_H-sigma_v)/2;
 r3 = (sigma_v-sigma_h)/2;
-y1 = sqrt(r1^2-x1_sample.^2);
-y2 = sqrt(r2^2-x2_sample.^2);
-y3 = sqrt(r3^2-x3_sample.^2);
+y1 = sqrt(r1^2-(x1_sample-x1_center).^2);
+y2 = sqrt(r2^2-(x2_sample-x2_center).^2);
+y3 = sqrt(r3^2-(x3_sample-x3_center).^2);
 
 figure(1)
 hold on; box on; grid on
