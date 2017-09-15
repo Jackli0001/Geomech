@@ -98,7 +98,8 @@ plot(xx_sample,yy_sample2)
 plot(sigma_n,tau,'x','MarkerSize',5)
 xlim([0 25])
 ylim([0 25])
-legend('\sigma_{Hmax} and \sigma_{hmin}','')
+legend({'\sigma_{Hmax} and \sigma_{hmin}','\sigma_{Hmax} and \sigma_{v}','\sigma_{v} and \sigma_{hmin}',...
+    '\mu = 0.5','\mu = 0.7','\sigma_n and \tau'},'fontsize',18)
 
 
 figure(2)
@@ -113,3 +114,5 @@ plot(sigma_n1,tau1,'x','MarkerSize',5)
 plot(sigma_n2,tau2,'x','MarkerSize',5)
 xlim([0 25])
 ylim([0 25])
+legend({'\sigma_{Hmax} and \sigma_{hmin}','\sigma_{Hmax} and \sigma_{v}','\sigma_{v} and \sigma_{hmin}',...
+    '\mu = 0.5','\mu = 0.7','Fracture Set 1','Fracture Set 2'},'fontsize',18)
