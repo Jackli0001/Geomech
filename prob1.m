@@ -98,6 +98,7 @@ plot(xx_sample,yy_sample2)
 plot(sigma_n,tau,'x','MarkerSize',5)
 xlim([0 25])
 ylim([0 25])
+legend('\sigma_{Hmax} and \sigma_{hmin}','')
 
 
 figure(2)
